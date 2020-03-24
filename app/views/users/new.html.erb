@@ -1,4 +1,8 @@
-<h1>Sign up</h1>
+<% content_for :title do %>
+  <h1>新規アカウントを作成</h1>
+  <br>
+  <h2>簡単に登録できます</h2>
+<% end %>
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
@@ -10,13 +14,32 @@
   </div>
 <% end %>
 <%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Create my account" %>
+
+  <%= f.text_field :name, placeholder: 'お名前' %>
+
+  <%= f.email_field :email, placeholder: 'メールアドレス' %>
+<div class="birthday">
+  <%= f.label :birthday, "お誕生日", class:'birthday_select' %>
+  <%= raw sprintf(
+            f.date_select(
+              :birth_date,
+              use_month_numbers: true,
+              start_year: 1930,
+              end_year: (Time.now.year - 18),
+              default: Date.new(1989, 1, 1),
+              date_separator: '%s'),
+              '年 ', '月 ') + '日' %>
+</div>
+  <%= f.label :gender, "性別", class:'gender_select' %>
+  <span class= "gender_parent">
+    <%= f.radio_button :gender, 1, class:'radio_button' %>
+    <%= f.label :gender, "男", class:'label man' %>
+    <%= f.radio_button :gender, 2, class:'radio_button' %>
+    <%= f.label :gender, "女", class:'label woman' %>
+    <%= f.radio_button :gender, 3, class:'radio_button' %>
+    <%= f.label :gender, "カスタム", class:'label other' %>
+  </span>
+    <%= f.password_field :password, placeholder: 'パスワード' %>
+    <%= f.password_field :password_confirmation, placeholder: '確認用パスワード' %>
+    <%= f.submit "アカウントを作成", class:'button' %>
 <% end %>
