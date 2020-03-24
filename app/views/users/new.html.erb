@@ -22,7 +22,7 @@
   <%= f.label :birthday, "お誕生日", class:'birthday_select' %>
   <%= raw sprintf(
             f.date_select(
-              :birth_date,
+              :birthday,
               use_month_numbers: true,
               start_year: 1930,
               end_year: (Time.now.year - 18),
