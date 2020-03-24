@@ -14,7 +14,7 @@
           <div class="logo_parent">
             <%= link_to("FannyBook", new_session_path, {class: "logo_child"})%>
           </div>
-          <%binding.pry%>
+          <%# <%binding.pry%> %>
           <div class="menu_login_container">
             <% if logged_in? %>
             <%= link_to("Profile", user_path(current_user.id), {class: "profile"}) %>

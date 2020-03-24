@@ -1,9 +1,7 @@
 .gender_parent {
-  display: table;
-  table-layout: fixed;
   width: 100%;
-  padding: 15px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .gender_select {
@@ -12,19 +10,21 @@
 }
 
 .label {
-  margin: 0;
-  width:auto;
-  text-align: left;
+  margin: auto;
+  width: auto;
   display: table-cell;
 }
 
 .radio_button {
-  margin: 0;
-  width:auto;
+  width: auto;
+  margin: auto;
   display: table-cell;
 }
 
-.birthday, .birthday_select {
-  text-align: left;
+.birthday {
   margin-bottom: 20px;
+  text-align: left;
+}
+.birthday_select {
+  text-align: left;
 }

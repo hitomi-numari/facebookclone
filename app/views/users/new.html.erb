@@ -1,7 +1,7 @@
 <% content_for :title do %>
   <h1>新規アカウントを作成</h1>
   <br>
-  <h2>簡単に登録できます</h2>
+  <p>簡単に登録できます</p>
 <% end %>
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -26,19 +26,19 @@
               use_month_numbers: true,
               start_year: 1930,
               end_year: (Time.now.year - 18),
-              default: Date.new(1989, 1, 1),
+              default: Date.new('1990-1-1'.to_date),
               date_separator: '%s'),
-              '年 ', '月 ') + '日' %>
+              '年 ', '月 ') + '日生まれ' %>
 </div>
   <%= f.label :gender, "性別", class:'gender_select' %>
-  <span class= "gender_parent">
-    <%= f.radio_button :gender, 1, class:'radio_button' %>
-    <%= f.label :gender, "男", class:'label man' %>
-    <%= f.radio_button :gender, 2, class:'radio_button' %>
-    <%= f.label :gender, "女", class:'label woman' %>
-    <%= f.radio_button :gender, 3, class:'radio_button' %>
-    <%= f.label :gender, "カスタム", class:'label other' %>
-  </span>
+  <div class= "gender_parent">
+    <span><%= f.radio_button :gender, 1, class:'radio_button' %></span>
+    <span><%= f.label :gender, "男", class:'label man' %></span>
+    <span><%= f.radio_button :gender, 2, class:'radio_button' %></span>
+    <span><%= f.label :gender, "女", class:'label woman' %></span>
+    <span><%= f.radio_button :gender, 3, class:'radio_button' %></span>
+    <span><%= f.label :gender, "カスタム", class:'label other' %></span>
+  </div>
     <%= f.password_field :password, placeholder: 'パスワード' %>
     <%= f.password_field :password_confirmation, placeholder: '確認用パスワード' %>
     <%= f.submit "アカウントを作成", class:'button' %>
