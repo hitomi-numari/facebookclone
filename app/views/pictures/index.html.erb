@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Pictures</h1>
+<% content_for :title do %>
+  <h1>Pictures</h1>
+  <p id="notice"><%= notice %></p>
 <h2><%= current_user.name %>のページ</h2>
-
+<% end %>
 <table>
   <thead>
     <tr>

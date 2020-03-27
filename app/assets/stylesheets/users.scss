@@ -9,13 +9,7 @@
   text-align: left;
 }
 
-.label {
-  margin: auto;
-  width: auto;
-  display: table-cell;
-}
-
-.radio_button {
+.input-group-addon {
   width: auto;
   margin: auto;
   display: table-cell;
@@ -25,6 +19,15 @@
   margin-bottom: 20px;
   text-align: left;
 }
-.birthday_select {
+.birthday_select, label {
   text-align: left;
+}
+
+#error_explanation {
+  h2 {
+    text-align: center;
+    background-color: transparent;
+    color: #a94442;
+    font-weight: bold;
+  }
 }

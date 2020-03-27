@@ -4,9 +4,10 @@ html,body {
 }
 
 .wrapper {
-  min-height: 100vh;
+  height: auto;
   position: relative;
   padding-bottom: 120px;
+  width: auto;
 }
 
 header {
@@ -20,12 +21,7 @@ header {
 
 .loggedout_menubar_container {
   height: 82px;
-  min-width: 980px;
-}
-
-.loggedout_menubar_container{
   display:table;
-  table-layout: fixed;
   width: 100%;
 }
 
@@ -64,7 +60,7 @@ header {
   padding: 0 80px;
 }
 
-.signup,.loginin {
+.signup,.loginin,.logout,.profile {
   font-size: 20px;
   font-family: Tahoma;
   padding: 0 20px;
@@ -90,15 +86,15 @@ header {
   outline: none;
   padding: 0;
   width: auto;
-  height: 640px;
+  height: auto;
   background-color: #e9ebee;
 }
 
-.form_content {
+.form-content {
   display: flex;
   justify-content: center;
   align-items:flex-start;
-  height: 490px;
+  min-height: 650px;
   font-size: 16px;
 }
 
@@ -112,23 +108,6 @@ header {
 
 h1,p {
   margin: 0;
-}
-
-footer {
-  position: absolute;
-  display: block;
-}
-
-.footer_container {
-  color: #737373;
-  margin: 0 auto;
-  width: 980px;
-}
-
-* {
-  box-sizing: border-box;
-  border: none;
-  list-style: none;
 }
 
 form {
@@ -179,4 +158,31 @@ input:focus {
     top: 3px;
     box-shadow: none;
   }
+}
+
+.field_with_errors {
+  display: contents;
+  .has-error {
+    background-color: pink;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 100px;
+}
+
+// .footer_container {
+//   color: #737373;
+//   width: auto;
+//   height: 82px;
+//   min-width: 980px;
+// }
+
+* {
+  box-sizing: border-box;
+  border: none;
+  list-style: none;
 }

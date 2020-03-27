@@ -14,14 +14,13 @@
           <div class="logo_parent">
             <%= link_to("FannyBook", new_session_path, {class: "logo_child"})%>
           </div>
-          <%# <%binding.pry%> %>
           <div class="menu_login_container">
             <% if logged_in? %>
-            <%= link_to("Profile", user_path(current_user.id), {class: "profile"}) %>
-            <%= link_to("Logout", session_path(current_user.id), {class: "logout"}, method: :delete) %>
+            <%= link_to "Profile", user_path(current_user.id), {class: "profile"} %>
+            <%= link_to "Logout", session_path(current_user), class: "logout", method: :delete %>
             <% else %>
-            <%= link_to("Sign up", new_user_path, {class: "signup"}) %>
-            <%= link_to("Login", new_session_path, {class: "loginin"}) %>
+            <%= link_to "Sign up", new_user_path, {class: "signup"} %>
+            <%= link_to "Login", new_session_path, {class: "loginin"} %>
             <% end %>
           </div>
         </div>
@@ -36,7 +35,8 @@
           <%= yield :title %>
         </div>
       </div>
-    <div class="form_content">
+    <%= yield :error %>
+    <div class="form-content">
       <%= yield %>
     </div>
     </div>
