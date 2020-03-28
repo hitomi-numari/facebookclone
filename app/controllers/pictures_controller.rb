@@ -7,6 +7,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    render :layout => '_form'
   end
 
   def new
@@ -14,10 +15,12 @@ class PicturesController < ApplicationController
       @picture = Picture.new(picture_params)
     else
       @picture = Picture.new
+      render :layout => '_form'
     end
   end
 
   def edit
+    render :layout => '_form'
   end
 
   def create
@@ -60,6 +63,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:image, :image_cache)
+    params.require(:picture).permit(:content, :image, :image_cache)
   end
 end

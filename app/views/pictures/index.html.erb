@@ -2,34 +2,41 @@
   <div class="alert <%= bootstrap_class_for(key) %>" ><%= value %></div>
 <% end %>
 <div class="top-image">
-  <img class="large">
   <img class="small">
   <div class="top-name"><h2><%= current_user.name %>のページ</h2></div>
 </div>
 <p id="notice"><%= notice %></p>
-<div class="timeline">
-  <aside class="side-menu">
+<div class="clearfix timeline">
+  <aside>
+    <p class="aside_p"><%= current_user.name =%></p>
+    <div class="side-menu">
+      <div class="side_menu_list"><%= link_to("ホーム", pictures_path, {class: "side_menu_link"})%></div>
+      <div class="side_menu_list"><%= link_to("ページ情報", user_path(current_user.id), {class: "side_menu_link"})%></div>
+    </div>
   </aside>
-  <article class="">
-    <%= link_to 'New Picture', new_picture_path %>
-    <table>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @pictures.each do |picture| %>
-          <tr>
-            <td><%= picture.user.name %></td>
-            <td><%= image_tag picture.image.url%></td>
-            <td><%= link_to 'Show', picture %></td>
-            <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-            <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+  <article class="posts">
+    <div class="link_to_new">
+      <%= link_to new_picture_path, method: :get do %>
+        <i class="fa fa-plus">新しく投稿する</i>
+      <% end %>
+    </div>
+      <% @pictures.each do |picture| %>
+      <div class="post_content">
+        <div class="picture_name"><%= picture.user.name %></div>
+        <div class="picture_content"><%= picture.content %></div>
+        <div class="picture_image"><%= image_tag picture.image.url%></div>
+      <div class="post_nav">
+        <%= link_to picture_path(picture.id), method: :get do %>
+            <i class="fa fa-info-circle"></i>
         <% end %>
-      </tbody>
-    </table>
+        <%= link_to edit_picture_path(picture.id), method: :get do %>
+            <i class="fa fa-edit"></i>
+        <% end %>
+        <%= link_to picture_path(picture.id), data: { confirm: 'Are you sure?' }, method: :delete do %>
+            <i class="fa fa-trash"></i>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
   </article>
 </div>

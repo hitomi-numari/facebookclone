@@ -25,9 +25,14 @@
           </div>
         </div>
       </header>
-      <div class="content">
+    <div class="content">
+      <div class="title_parent">
+        <%= yield :title %>
+      </div>
+      <div class="form-content">
         <%= yield %>
       </div>
+    </div>
     <footer>
       <div class ="footer_container">
       <p>運営会社MyTweet株式会社</p>

@@ -1,6 +1,20 @@
 <% content_for :title do %>
   <h1><%= @user.name %>のページ</h1>
 <% end %>
-<p>メールアドレス: <%= @user.email %></p>
-<p>誕生日: <%= @user.birthday %></p>
-<p>性別: <%= @user.gender %></p>
+<div class="profile_content">
+  <table>
+    <tr>
+      <th>メールアドレス:</th><td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>誕生日:</th><td><%= @user.birthday %></td>
+    </tr>
+    <tr>
+      <th>性別:</th><td><%= gender_view(@user.gender) %></td>
+    </tr>
+  </table>
+</div>
+
+<div class="navbar">
+  <%= link_to 'ログインする', new_session_path, class:"button" %>
+</div>
