@@ -2,6 +2,7 @@
   <div class="alert <%= bootstrap_class_for(key) %>" ><%= value %></div>
 <% end %>
 <div class="top-image">
+  <img class="large">
   <img class="small">
   <div class="top-name"><h2><%= current_user.name %>のページ</h2></div>
 </div>
@@ -22,7 +23,10 @@
     </div>
       <% @pictures.each do |picture| %>
       <div class="post_content">
-        <div class="picture_name"><%= picture.user.name %></div>
+        <div class="picture_name">
+          <span class="user_name"><%= picture.user.name %></span>
+          <span class="created_time"><%= picture.created_at %></span>
+        </div>
         <div class="picture_content"><%= picture.content %></div>
         <div class="picture_image"><%= image_tag picture.image.url%></div>
       <div class="post_nav">
