@@ -30,6 +30,10 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :development, :production, :test do
+  gem 'jquery-rails'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bcrypt', '3.1.11'
