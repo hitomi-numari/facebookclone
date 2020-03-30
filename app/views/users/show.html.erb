@@ -1,5 +1,14 @@
 <% content_for :title do %>
-  <h1><%= @user.name %>のページ</h1>
+  <div class="profile_bar">
+    <div class="image_small">
+      <%= form_with(model: @user, local: true, url: choose_new_or_edit) do |form| %>
+        <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+        <%= form.file_field :image, class:"image_upload" %>
+        <%= form.hidden_field :image_cache %>
+      <%= end %>
+    </div>
+    <h1><%= @user.name %>のページ</h1>
+  </div>
 <% end %>
 <div class="profile_content">
   <table>
