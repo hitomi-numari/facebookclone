@@ -7,6 +7,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
   process :resize_to_limit => [500, 500] # 画像サイズの調整
+
+  version :thumb do
+    process :resize_to_limit => [100, 100]
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -14,12 +18,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url(*args)
+  def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+    # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -44,4 +47,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
 end

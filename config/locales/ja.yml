@@ -169,10 +169,3 @@ time:
     long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
   am: "午前"
   pm: "午後"
-
-  activerecorde:
-  attributes:
-    contact:
-    　email: メールアドレス
-    　phone: 電話番号
-      email_or_phone: メールアドレスまたは電話番号

@@ -1,13 +1,14 @@
 <% content_for :title do %>
-  <div class="profile_bar">
-    <div class="image_small">
-      <%= form_with(model: @user, local: true, url: choose_new_or_edit) do |form| %>
-        <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-        <%= form.file_field :image, class:"image_upload" %>
-        <%= form.hidden_field :image_cache %>
-      <%= end %>
+  <div class="clearfix profile_bar">
+    <div class="profile_name"><%= @user.name %>のページ
+    <div class="profile_icon">
+    <% if @user.image? %>
+      <%= image_tag @user.image.thumb.url %>
+    <% else %>
+      <%= image_tag "/assets/default.jpg" %>
+    <% end %>
     </div>
-    <h1><%= @user.name %>のページ</h1>
+    </div>
   </div>
 <% end %>
 <div class="profile_content">
@@ -23,3 +24,8 @@
     </tr>
   </table>
 </div>
+<% if logged_in? %>
+  <%= link_to "編集する", edit_user_path(current_user), class:'button login' %>
+<% else %>
+  <%= link_to "ログインする", new_session_path, class:"button login" %>
+<% end %>

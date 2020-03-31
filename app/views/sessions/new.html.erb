@@ -6,3 +6,6 @@
   <%= f.password_field :password, placeholder: 'パスワード' %><br>
   <%= f.submit "ログイン", class:'button' %><br>
 <% end %>
+
+<p>アカウントをお持ちでない方<P>
+<%= link_to "アカウント作成", new_user_path, class:'button' %>

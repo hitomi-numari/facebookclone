@@ -1,4 +1,5 @@
 <%= form_with(model: @picture, local: true, url: choose_new_or_edit) do |form| %>
+
   <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
@@ -12,6 +13,7 @@
 
   <%= form.text_area :content, class:'form_control', rows: 10, placeholder: "コメントを書く"%>
   <div class="image">
+    <%= form.label :image %>
     <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
     <%= form.file_field :image, class:"image_upload" %>
     <%= form.hidden_field :image_cache %>
@@ -20,7 +22,9 @@
   <div class="submit">
     <%= form.submit "登録する", class:"button" %>
   </div>
+
   <div class="navbar">
     <%= link_to "投稿一覧画面にもどる", pictures_path %>
   </div>
+
 <% end %>
