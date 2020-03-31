@@ -24,7 +24,7 @@
     </div>
       <% @pictures.each do |picture| %>
       <div class="post_content">
-        <div class="picture_name">          
+        <div class="picture_name">      
           <% if picture.user.image.present? %>
             <%= image_tag(picture.user.image.url, :size => "50x50") %>
           <% else %>
