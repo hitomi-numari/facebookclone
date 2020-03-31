@@ -2,11 +2,11 @@
   <div class="clearfix profile_bar">
     <div class="profile_name"><%= @user.name %>のページ
     <div class="profile_icon">
-    <% if @user.image? %>
-      <%= image_tag @user.image.thumb.url %>
-    <% else %>
-      <%= image_tag "/assets/default.jpg" %>
-    <% end %>
+  <% if @user.image.present? %>
+   <p><%= image_tag(@user.image.url, :size => "50x50") %></p>
+  <% else %>
+   <p><%= image_tag("default.png", :size => "50x50") %></p>
+  <% end %>
     </div>
     </div>
   </div>
@@ -26,6 +26,7 @@
 </div>
 <% if logged_in? %>
   <%= link_to "編集する", edit_user_path(current_user), class:'button login' %>
+  <%= link_to "投稿一覧画面にもどる", pictures_path, class:'button login' %>
 <% else %>
   <%= link_to "ログインする", new_session_path, class:"button login" %>
 <% end %>

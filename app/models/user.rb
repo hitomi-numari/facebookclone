@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :gender, presence: true
   before_validation { email.downcase! }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
   has_many :pictures
 
   mount_uploader :image, IconUploader

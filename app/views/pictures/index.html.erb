@@ -24,9 +24,13 @@
     </div>
       <% @pictures.each do |picture| %>
       <div class="post_content">
-        <div class="picture_name">
+        <div class="picture_name">          
+          <% if picture.user.image.present? %>
+            <%= image_tag(picture.user.image.url, :size => "50x50") %>
+          <% else %>
+             <%= image_tag("default.png", :size => "50x50") %>
+          <% end %>
           <span class="user_name"><%= picture.user.name %></span>
-          <div><%= image_tag(picture.user.image.url) if picture.user.image && picture.user.image.url %></div>
           <span class="created_time"><%= picture.created_at %></span>
         </div>
         <div class="picture_content"><%= picture.content %></div>
