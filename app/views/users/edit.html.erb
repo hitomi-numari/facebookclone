@@ -19,7 +19,7 @@
 <%= form_with(model: @user, local: true ) do |f| %>
 
 <div class="image_small">
-  <%= image_tag(@user.image.thumb.url) if @user.image && @user.image.thumb.url %>
+  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
   <%= f.file_field :image, class:"image_upload" %>
   <%= f.hidden_field :image_cache %>
 
