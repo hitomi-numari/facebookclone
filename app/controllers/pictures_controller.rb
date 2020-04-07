@@ -3,11 +3,10 @@ class PicturesController < ApplicationController
 
   def index
     @pictures = Picture.all
-    render :layout => 'index'
   end
 
   def show
-    render :layout => '_form'
+
   end
 
   def new
@@ -15,12 +14,10 @@ class PicturesController < ApplicationController
       @picture = Picture.new(picture_params)
     else
       @picture = Picture.new
-      render :layout => '_form'
     end
   end
 
   def edit
-    render :layout => '_form'
   end
 
   def create
